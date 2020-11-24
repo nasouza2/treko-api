@@ -1,11 +1,11 @@
-pipeline{
-  agent{
-    docker{
-      image "node:8-alpine"
+pipeline {
+  agent {
+    docker {
+      image "node:alpine"
       args "--network=skynet"
     }
   }
- stages {
+  stages {
     stage("Build") {
       steps {
         sh "echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositories"
@@ -18,8 +18,8 @@ pipeline{
         sh "npm install"
       }
     }
-    stage("Test"){
-      steps{
+    stage("Test") {
+      steps {
         sh "npm run test:ci"
       }
       post {
