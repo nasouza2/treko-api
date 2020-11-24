@@ -7,7 +7,7 @@ pipeline{
   stages{
     stage("Biuld"){
       steps{
-        sh "cmod +x ./scripts/dropdb.sh"
+        sh "chmod +x ./scripts/dropdb.sh"
         sh "npm install"
       }
     }
